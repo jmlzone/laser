@@ -3,7 +3,7 @@ import svgwrite
 from svgwrite.data.types import SVGAttribute
 from svgwrite.extensions import Inkscape
 
-dwg = svgwrite.Drawing('ravMountShapes.svg', profile='full', size=('300mm','400mm'), viewBox="0 0 300 400")
+dwg = svgwrite.Drawing('ravMountShapes.svg', profile='full', size=('300mm','155mm'), viewBox="0 0 300 155")
 ink=Inkscape(dwg)
 
 def myBox(dwg, ox,oy) :
