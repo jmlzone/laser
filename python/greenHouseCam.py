@@ -113,13 +113,76 @@ def greenHouseSpacer(dwg, ox,oy, spacerOD=26.0, camID=10.0, mhd=3.5,mho=5.5,notc
     stroke="black", fill="none", stroke_width=0.1)
     dwg.add(p)
     return()
+def greenHouseBushing(dwg, ox,oy, OD=7.0, ID=3.5) :
+    cx=ox+(OD/2.0)
+    cy=oy+(OD/2.0)
+    c=dwg.add(dwg.circle(center=(cx,cy), r=(ID/2.0), stroke="black", fill="none", stroke_width=0.1))
+    c=dwg.add(dwg.circle(center=(cx,cy), r=(OD/2.0), stroke="black", fill="none", stroke_width=0.1))
+    return()
+def circleCl(dwg,cx,cy,d) :
+    r=d/2.0
+    c=dwg.add(dwg.circle(center=(cx,cy), r=r, stroke="black", fill="none", stroke_width=0.1))
+    l=dwg.add(dwg.line(start=(cx-r,cy), end=(cx+r,cy), stroke="black", fill="none", stroke_width=0.1))
+    l=dwg.add(dwg.line(start=(cx,cy-r), end=(cx,cy+r), stroke="black", fill="none", stroke_width=0.1))
+    return()
+def servoArm(dwg,ox,oy, camOD=35.0, camID=10.0, mhd=3.5,mho=5.5, mha=30, endD=20.0, ar1=145.0, ar2=160.0) :
+    cx=ox+(camOD/2.0)
+    cy=oy+(camOD/2.0)
+    br=camOD/2.0
+    lr=endD/2.0
+    mhr=mho/math.sin(math.radians(45))
+    mhRad1 = math.radians(45+(mha/2.0))
+    so=mhr * math.sin(mhRad1)
+    co=mhr * math.cos(mhRad1)
+    mhRad2 = math.radians(45-(mha/2.0))
+    se=mhr * math.sin(mhRad2)
+    ce=mhr * math.cos(mhRad2)
+    # inner cicle
+    circleCl(dwg,cx,cy,camID)
+    # mounting holes
+    #circleCl(dwg,cx+mho,cy+mho,(mhd))
+    circleCl(dwg,cx+co,cy+so,(mhd))
+    circleCl(dwg,cx+ce,cy+se,(mhd))
+    #circleCl(dwg,cx+mho,cy-mho,(mhd))
+    circleCl(dwg,cx+co,cy-so,(mhd))
+    circleCl(dwg,cx+ce,cy-se,(mhd))
+    #circleCl(dwg,cx-mho,cy+mho,(mhd))
+    circleCl(dwg,cx-so,cy+co,(mhd))
+    circleCl(dwg,cx-se,cy+ce,(mhd))
+    #circleCl(dwg,cx-mho,cy-mho,(mhd))
+    circleCl(dwg,cx-co,cy-so,(mhd))
+    circleCl(dwg,cx-ce,cy-se,(mhd))
+    # servo arm holes
+    circleCl(dwg,cx+ar1,cy,(mhd))
+    circleCl(dwg,cx+ar2,cy,(mhd))
+    # outside path
+    # move to start
+    pathText = "M%f,%f\n" % (cx,(cy-br))
+    #big arc
+    pathText = pathText+ "A%f,%f 0 %d 0 %f,%f\n" %(br,br,0,cx,(cy+br))
+    #move to start of small arc
+    pathText = pathText+ "L%f,%f\n" % ((cx+ar2),(cy+lr))
+    #small arc
+    pathText = pathText+ "A%f,%f 0 %d 0 %f,%f\n" %(lr,lr,0,(cx+ar2),(cy-lr))
+    #final line
+    pathText = pathText+ "L%f,%f\n" % (cx,(cy-br))
+    p=dwg.path(d="%s" %pathText,
+    stroke="black", fill="none", stroke_width=0.1)
+    dwg.add(p)
+    
 sx=2
 sy=2
+servoArm(dwg,sx,sy)
 ox=27
 oy=11
-for x in list(range(sx, (2*ox),ox)) :
-    for y in list(range(sy, (8*oy), oy)) :
-        greenHouseSpacer(dwg,x,y)
+#for y in list(range(sy, (7*oy), oy)) :
+#    greenHouseSpacer(dwg,sx,y)
+
+sx=29
+sy=2
+oy=8
+#for y in list(range(sy, (10*oy), oy)) :
+#    greenHouseBushing(dwg,sx,y)
 
 #greenHouseSpacer(dwg,5,5)
 #greenHouseSpacer(dwg,5,16)
