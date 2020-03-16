@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg baseProfile="full" height="155mm" version="1.1" viewBox="0 0 300 155" width="300mm" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs/>
+  <path d="M5,5 l232,0 l0,96 l-232,0 l0,-96" fill="none" stroke="black" stroke-width="0.1"/>
+  <circle cx="185" cy="70" fill="none" r="1.0" stroke="black" stroke-width="0.1"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="184.0" x2="186.0" y1="70" y2="70"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="185" x2="185" y1="69.0" y2="71.0"/>
+  <circle cx="225" cy="70" fill="none" r="1.0" stroke="black" stroke-width="0.1"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="224.0" x2="226.0" y1="70" y2="70"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="225" x2="225" y1="69.0" y2="71.0"/>
+  <path d="M191.500000,46.500000 l27,0l0,41 l-6,6 l-15,0 l-6,-6 l0,-41" fill="none" stroke="black" stroke-width="0.1"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="141.75" x2="148.25" y1="20" y2="20"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="145" x2="145" y1="16.75" y2="23.25"/>
+  <path d="M141.750000,18.129171 a3.750000,3.750000  0 0,1 6.500000,0 l0,3.741657 a 3.750000,3.750000  0 0,1 -6.500000,0 l0,-3.741657 " fill="none" stroke="black" stroke-width="0.1"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="81.75" x2="88.25" y1="20" y2="20"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="85" x2="85" y1="16.75" y2="23.25"/>
+  <path d="M81.750000,18.129171 a3.750000,3.750000  0 0,1 6.500000,0 l0,3.741657 a 3.750000,3.750000  0 0,1 -6.500000,0 l0,-3.741657 " fill="none" stroke="black" stroke-width="0.1"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="21.75" x2="28.25" y1="20" y2="20"/>
+  <line fill="none" stroke="black" stroke-width="0.1" x1="25" x2="25" y1="16.75" y2="23.25"/>
+  <path d="M21.750000,18.129171 a3.750000,3.750000  0 0,1 6.500000,0 l0,3.741657 a 3.750000,3.750000  0 0,1 -6.500000,0 l0,-3.741657 " fill="none" stroke="black" stroke-width="0.1"/>
+</svg>
