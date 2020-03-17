@@ -3,6 +3,8 @@ import svgwrite
 from svgwrite.data.types import SVGAttribute
 from svgwrite.extensions import Inkscape
 
+from libShapes import *
+
 dwg = svgwrite.Drawing('ravMountShapes.svg', profile='full', size=('300mm','155mm'), viewBox="0 0 300 155")
 ink=Inkscape(dwg)
 
@@ -22,61 +24,6 @@ def mySwitchBracket(dwg, ox,oy) :
     dwg.add(c)
     c=dwg.add(dwg.circle(center=((ox+15),(oy+10)),r=0.75,stroke='black',fill="none", stroke_width=0.1))
     c=dwg.add(dwg.circle(center=((ox+15),(oy+20)),r=0.75,stroke='black',fill="none", stroke_width=0.1))
-    return()
-def insideCircle(centerX,centerY,r,x,y) :
-    rx=(x-centerX)
-    ry=(y-centerY)
-    rx2=rx**2
-    ry2=ry**2
-    r2=r**2
-    tf=(rx2+ry2) <=r2;
-    #print("rx=%d rx2=%d ry=%d ry2=%d, r2=%d:: %s" %(rx,rx2,ry,ry2,r2,str(tf)))
-    return(tf)
-
-def speakerGrill(dwg, cx,cy, diameter=50, holes=6, inlinegap=2, altrowgap=2, mountspace=42, mounthole=3) :
-    # start with a hole in the center and work out?
-    stroke='black'
-    hr=holes/2
-    sr=(diameter/2)-hr
-    mr=mounthole/2
-    mo=mountspace/2
-    ox=0
-    oy=0
-    nx=cx+ox
-    ny=cy+oy
-    baseRow = True
-    while(insideCircle(cx,cy,sr,nx,ny)) :
-        while(insideCircle(cx,cy,sr,nx,ny)) :
-            c=dwg.add(dwg.circle(center=((cx+ox),(cy+oy)),r=hr,stroke=stroke))
-            c.fill(color='none')
-            c.stroke(color='black',width=0.1,opacity=1,linejoin='round',miterlimit=4)
-            if(oy) :
-                c=dwg.add(dwg.circle(center=((cx+ox),(cy-oy)),r=hr,stroke=stroke))
-                c.fill(color='none')
-                c.stroke(color='black',width=0.1,opacity=1,linejoin='round',miterlimit=4)
-            if(ox) :
-                c=dwg.add(dwg.circle(center=((cx-ox),(cy+oy)),r=hr,stroke=stroke))
-                c.fill(color='none')
-                c.stroke(color='black',width=0.1,opacity=1,linejoin='round',miterlimit=4)
-                if(oy) :
-                    c=dwg.add(dwg.circle(center=((cx-ox),(cy-oy)),r=hr,stroke=stroke))
-                    c.fill(color='none')
-                    c.stroke(color='black',width=0.1,opacity=1,linejoin='round',miterlimit=4)
-            oy=oy+hr+hr+inlinegap
-            ny=cy+oy
-        ox = ox + hr + hr + altrowgap
-        baseRow = not(baseRow)
-        if(baseRow) :
-            oy=0
-        else :
-            oy = (hr+hr+inlinegap)/2
-        nx=cx+ox
-        ny=cy+oy
-        if(mo) :
-            c=dwg.add(dwg.circle(center=((cx+mo),(cy+mo)),r=mr,stroke='black',fill="none", stroke_width=0.1))
-            c=dwg.add(dwg.circle(center=((cx+mo),(cy-mo)),r=mr,stroke='black',fill="none", stroke_width=0.1))
-            c=dwg.add(dwg.circle(center=((cx-mo),(cy+mo)),r=mr,stroke='black',fill="none", stroke_width=0.1))
-            c=dwg.add(dwg.circle(center=((cx-mo),(cy-mo)),r=mr,stroke='black',fill="none", stroke_width=0.1))
     return()
 
 def ravFront(dwg, ox,oy) :

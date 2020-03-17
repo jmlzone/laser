@@ -4,7 +4,7 @@ from svgwrite.data.types import SVGAttribute
 from svgwrite.extensions import Inkscape
 import math
 
-dwg = svgwrite.Drawing('greenHouseCam.svg', profile='full', size=('215mm','100mm'), viewBox="0 0 215 100")
+dwg = svgwrite.Drawing('bushing.svg', profile='full', size=('100mm','50mm'), viewBox="0 0 100 50")
 ink=Inkscape(dwg)
 
 def greenHouseCamBlank(dwg, ox,oy, camOD=35.0, camID=10.0, mhd=3.5,mho=5.5) :
@@ -172,17 +172,19 @@ def servoArm(dwg,ox,oy, camOD=35.0, camID=10.0, mhd=3.5,mho=5.5, mha=30, endD=20
     
 sx=2
 sy=2
-servoArm(dwg,sx,sy)
+#servoArm(dwg,sx,sy)
 ox=27
 oy=11
 #for y in list(range(sy, (7*oy), oy)) :
 #    greenHouseSpacer(dwg,sx,y)
 
-sx=29
+sx=2
 sy=2
 oy=8
-#for y in list(range(sy, (10*oy), oy)) :
-#    greenHouseBushing(dwg,sx,y)
+ox=8
+for y in list(range(sy, (4*oy), oy)) :
+    for x in list(range(sx, (2*ox), ox)) :
+        greenHouseBushing(dwg,x,y)
 
 #greenHouseSpacer(dwg,5,5)
 #greenHouseSpacer(dwg,5,16)

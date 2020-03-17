@@ -55,28 +55,29 @@ if (__name__ == "__main__") :
     ink=Inkscape(dwg)
     outlineBBox(dwg,5,5,232,96)
     #VA meter for analog supply
-    centeredBox(dwg,50,25,46,27)
+    centeredBox(dwg,50,30,46,27)
     #amp limit control
-    circleCl(dwg,30,50,7.5)
+    circleCl(dwg,30,55,7.5)
     #Voltage Control
-    circleCl(dwg,70,50,7.5)
-    bindingPostPair(dwg,50,70)
+    circleCl(dwg,70,55,7.5)
+    bindingPostPair(dwg,50,75)
     #jacks for analog power
-    oblongHole(dwg,85,15,7.5,6.5)
-    oblongHole(dwg,85,35,7.5,6.5)
+    oblongHole(dwg,85,20,7.5,6.5)
+    oblongHole(dwg,85,40,7.5,6.5)
     #VA meter for digital supply
-    centeredBox(dwg,167,25,46,27)
+    centeredBox(dwg,167,30,46,27)
     #voltage select switch
-    circleCl(dwg,167,50,7.5)
+    circleCl(dwg,167,55,5.5)
     # +5 connections
-    bindingPostPair(dwg,120,60)
-    oblongHole(dwg,150,60,7.5,6.5)
+    bindingPostPair(dwg,120,65)
+    oblongHole(dwg,150,65,7.5,6.5)
     # +3.3 connections
-    bindingPostPair(dwg,190,60)
-    oblongHole(dwg,220,60,7.5,6.5)
+    bindingPostPair(dwg,190,65)
+    oblongHole(dwg,220,65,7.5,6.5)
     # -12 connections
-    bindingPostPair(dwg,120,80)
-    oblongHole(dwg,150,80,7.5,6.5)
+    #bindingPostPair(dwg,120,85)
+    circleCl(dwg,150,85,7.5)
+    oblongHole(dwg,(190-9.5),85,7.5,6.5)
     dwg.save(pretty=True)
 
     dwg = svgwrite.Drawing('back.svg', profile='full', size=('300mm','155mm'), viewBox="0 0 300 155")
